@@ -5,7 +5,7 @@ describe AutoTagger::CommandLine do
   describe "#execute" do
     it "runs the version command" do
       command_line = AutoTagger::CommandLine.new ["version"]
-      command_line.execute.first.should be_true
+      command_line.execute.first.should eq(true)
       command_line.execute.last.should include(AutoTagger::VERSION)
     end
 

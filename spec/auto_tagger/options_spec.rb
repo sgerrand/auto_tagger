@@ -30,13 +30,13 @@ describe AutoTagger::Options do
 
     it "understands --dry-run" do
       options = AutoTagger::Options.from_command_line ["--dry-run"]
-      options[:dry_run].should be_true
+      options[:dry_run].should eq(true)
 
       options = AutoTagger::Options.from_command_line ["--dry-run=true"]
-      options[:dry_run].should be_true
+      options[:dry_run].should eq(true)
 
       options = AutoTagger::Options.from_command_line ["--dry-run=false"]
-      options[:dry_run].should be_false
+      options[:dry_run].should eq(false)
     end
 
     it "understands --fetch-refs" do
@@ -60,7 +60,7 @@ describe AutoTagger::Options do
       options[:offline].should be_nil
 
       options = AutoTagger::Options.from_command_line ["--offline=true"]
-      options[:offline].should be_true
+      options[:offline].should eq(true)
     end
   end
 
