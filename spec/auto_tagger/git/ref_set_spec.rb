@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AutoTagger::Git::RefSet do
 
   before do
-    @repo = mock(AutoTagger::Git::Repo, :exec => true)
+    @repo = double(AutoTagger::Git::Repo, :exec => true)
     @ref_set = AutoTagger::Git::RefSet.new(@repo)
     @refstring = <<-LIST
       23087241c495773c8eece1c195cc453a8055c4eb refs/tags/200808080808

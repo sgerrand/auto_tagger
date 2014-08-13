@@ -252,7 +252,7 @@ describe AutoTagger::Base do
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags-ci/2009"),
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/heads/master")
       ]
-      base.repo.stub(:refs) { mock("RefSet", :all => refs) }
+      base.repo.stub(:refs) { double("RefSet", :all => refs) }
       base.refs_for_stage("ci").should == [
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/ci/2009")
       ]
@@ -267,7 +267,7 @@ describe AutoTagger::Base do
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/ci/1002"),
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/heads/master")
       ]
-      base.repo.stub(:refs) { mock("RefSet", :all => refs) }
+      base.repo.stub(:refs) { double("RefSet", :all => refs) }
       base.refs_for_stage("ci").map(&:name).should == [ "refs/tags/ci/999", "refs/tags/ci/1001", "refs/tags/ci/1002" ]
     end
   end
@@ -293,7 +293,7 @@ describe AutoTagger::Base do
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/production/2008"),
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/production/2009")
       ]
-      base.repo.stub(:refs) { mock("RefSet", :all => refs) }
+      base.repo.stub(:refs) { double("RefSet", :all => refs) }
       base.release_tag_entries.should == [
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/ci/2009"),
           AutoTagger::Git::Ref.new(base.repo, "abc123", "refs/tags/demo/2009"),

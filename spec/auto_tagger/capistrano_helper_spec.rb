@@ -20,8 +20,8 @@ describe AutoTagger::CapistranoHelper do
 
     it "returns the sha of the last ref from that stage" do
       helper = AutoTagger::CapistranoHelper.new({})
-      ref = mock(AutoTagger::Git::Ref, :sha => "abc123")
-      auto_tagger = mock AutoTagger::Base, :last_ref_from_previous_stage => ref
+      ref = double(AutoTagger::Git::Ref, :sha => "abc123")
+      auto_tagger = double AutoTagger::Base, :last_ref_from_previous_stage => ref
       helper.stub(:auto_tagger) { auto_tagger }
       helper.ref.should == "abc123"
     end

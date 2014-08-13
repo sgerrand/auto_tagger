@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AutoTagger::Git::Ref do
 
   before do
-    @repo = mock(AutoTagger::Git::Repo, :exec => true)
+    @repo = double(AutoTagger::Git::Repo, :exec => true)
     @ref = AutoTagger::Git::Ref.new(@repo, "85af4e", "refs/auto_tags/ci")
   end
 

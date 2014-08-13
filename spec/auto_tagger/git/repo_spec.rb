@@ -4,7 +4,7 @@ describe AutoTagger::Git::Repo do
 
   before do
     File.stub(:exists?).and_return(true)
-    @commander = mock(AutoTagger::Commander)
+    @commander = double(AutoTagger::Commander)
   end
 
   describe "#path" do
